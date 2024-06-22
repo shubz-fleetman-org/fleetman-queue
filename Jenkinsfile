@@ -23,12 +23,7 @@ pipeline {
          }
       }
 
-      stage('Build and Push Image') {
-         steps {
-           sh 'BUILDING DOCKER IMAGES'
-         }
-      }
-
+     
       stage('Deploy to Cluster') {
           steps {
             sh 'envsubst < ${WORKSPACE}/deploy.yaml | kubectl apply -f -'
